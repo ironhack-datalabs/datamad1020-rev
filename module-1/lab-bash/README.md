@@ -1,4 +1,4 @@
-# Bash Lab
+## Bash Lab
 
 ## Intro
 
@@ -13,7 +13,7 @@ Abre el  jupyter notebook en esta carpeta llamado solutions.ipynb y ve escribien
 
 1. Ubícate en la carpeta en la que ejecutando en el terminal. Al ejecutar `ls` 
 ```console
-$ ls
+$ l
 ```
 
 2. Deberías ver: 
