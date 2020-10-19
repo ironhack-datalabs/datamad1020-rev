@@ -1,0 +1,1 @@
+../datamad1020-rev/module-1/lab-bash/lorem/
