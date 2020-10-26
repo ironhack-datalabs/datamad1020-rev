@@ -2,7 +2,7 @@
 
 # Lab | Numpy Deep Dive
 
-## Introduction
+## Introduccion
 
 An important ability of a data scientist/data engineer is to know where and how to find information that helps you to accomplish your work. In the exercise, you will both practice the Numpy features we discussed in the lesson and learn new features by looking up documentations and references. You will work on your own but remember the teaching staff is at your service whenever you encounter problems.
 
