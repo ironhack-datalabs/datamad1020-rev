@@ -116,7 +116,8 @@ print(de_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-f = np.zeros((2, 3, 5))
+f = np.empty((2, 3, 5))
+
 
 
 """
@@ -128,7 +129,20 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+for x in d:
+    for y in f:
+        if x > d_min and x < d_mean:
+            print(25)
+        elif x > d_mean and x < d_max:
+            print(75)
+        elif x == d_mean:
+            print(50)
+        elif x == d_min:
+            print(0)
+        elif x == d_max:
+            print(100)
 
+        
 
 
 
@@ -152,7 +166,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print(f) #NO ME SALE REVISAR MAÑANA!!!!!!!
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
