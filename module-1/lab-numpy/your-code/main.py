@@ -1,68 +1,88 @@
+import random
 #1. Import the NUMPY package under the name np.
+import numpy as np
 
 
 
 #2. Print the NUMPY version and the configuration.
-
-
+#print(np.__version__)
+#print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
-
+a=(np.random.randn(2,3,5))
 
 
 #4. Print a.
+print(a)
 
 
 
-#5. Create a 5x2x3 3-dimensional array with all values equaling 1.
+#5. Create a 5x3x2 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
+b=(np.ones((5,3,2)))
 
 
 
 #6. Print b.
+print(b)
 
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
+print(a.size)
+print(b.size)
+#si tienen el mismo tamaño pero diferentes dimensiones
 
 
 
 #8. Are you able to add a and b? Why or why not?
+# no se puede porque las matrices son de distintas dimensiones 
 
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+c=np.transpose(b)
+#print(c)
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
+d = a+c
+#print(d)
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-
+#print(a)
+#print(d)
+#la matriz d es el resutado de la operacion matematica, es decir lo 
+#que ocurrio es que se realizo la suma entre los valores de cada matriz (a y c) correspondiente a la misma posicion
+# y eso genero la nueva matriz "d"
 
 
 #12. Multiply a and c. Assign the result to e.
 
+e = a * c
 
 
 #13. Does e equal to a? Why or why not?
+
+#si son iguales ya que la matriz c es la transpuesta de b la cual a su vez es una matroz de puros valores 1, por lo que la matriz c
+#el unico valor que posee en sus posiciones es 1, por lo tanto al multiplicar a on c estoy multiplicando los valores de la matriz a por
+#1 dando asi el mismo valo
 
 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
-
-
+d_max=np.max(d)
+d_min=np.min(d)
+d_mean=np.mean(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
+f=np.empty((2,3,5))
 
 
 """
@@ -75,7 +95,38 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+for i in range (2):
+        for y in range (3):
+                for g in range (5):
+                        if d[i,y,g]>d_min and d[i,y,g]<d_mean:
+                                
+                                f[i,y,g]=25
+                                x=str(int(f[i,y,g]))
+                                print(type(x))
+                                print(x)
+                        
+                        elif d[i,y,g]>d_mean and d[i,y,g]<d_max:
+                                 f[i,y,g]=75
 
+                        elif d[i,y,g]==d_mean:
+                                 f[i,y,g]=50
+                        
+                        elif d[i,y,g]<d_min:
+                                 f[i,y,g]=0
+
+                        else: 
+                                f[i,y,g]=100
+
+
+'''
+f[d==d_mean]=50
+f[d<d_min]=0
+f[d>d_max]=0
+f[(d>d_mean and d<d_max)]=0
+f[(d<d_mean and d>d_min)]=0
+esto esra otra manera pero las dos ultimas dan error, me indica que uso el comando .all() pero no logre encontrar como usarlo :(
+        '''
+                                
 
 
 """
@@ -98,7 +149,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -112,3 +164,33 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+h=np.empty((2,3,5))
+
+for i in range (2):
+        for y in range (3):
+                for g in range (5):
+                        if d[i,y,g]>d_min and d[i,y,g]<d_mean:
+                                h[i,y,g]=h[i,y,g].astype(str)
+                                print(type(h[i,y,g]))
+                                ''''
+                        elif d[i,y,g]>d_mean and d[i,y,g]<d_max:
+                                h[i,y,g]=h[i,y,g].astype(str)
+                                h[i,y,g]="B"
+
+                        elif d[i,y,g]==d_mean:
+                                h[i,y,g]=h[i,y,g].astype(str)
+                                h[i,y,g]="C"
+                        
+                        elif d[i,y,g]<d_min:
+                                h[i,y,g]=h[i,y,g].astype(str)
+                                h[i,y,g]="D"
+
+                        else: 
+                                h[i,y,g]=h[i,y,g].astype(str)
+                                h[i,y,g]="E"
+                                ''''
+#no supe como cambiar el type de variable de la matriz
+
+
+
