@@ -1,5 +1,5 @@
 #1. Import the NUMPY package under the name np.
-
+import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
@@ -9,59 +9,77 @@
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
-
+a = np.random.randn(3,2,5)
 
 #4. Print a.
 
+print(a)
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
+b =np.ones((5,2,3))
 
 
 #6. Print b.
 
+print (b)
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
+#Yes, they are both the same size
 
 
 
 #8. Are you able to add a and b? Why or why not?
 
-
+# No, because they don't have the same rank
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-
+c =np.transpose(b)
+print(c)
+print(f' c {np.shape(c)}')
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
+
+d = a + c
+
+print(d)
 
 
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-
+ed = a + d
 
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a*c
+print(f'c {c}')
+print(f' e {e}')
+print(f'a {a}')
 
 #13. Does e equal to a? Why or why not?
 
-
+#yes, because c is ones
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
+d_max = np.amax(d)
+d_min = np.amin(d)
+d_mean = np.mean(d)
 
+print(f'd_max {d_max}, d_min {d_min}, d_mean {d_mean}')
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-
+f = np.empty((3,2,5))
+print(f'f {f}')
 
 
 
@@ -74,7 +92,24 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+print(np.shape(d), np.shape(f))
+for i,x in enumerate(d):
+        for j,y in enumerate(x):
+                for k,z in enumerate(y):
+                        
+                        if d_mean >z >d_min:
+                                f[i,j,k] = 25
+                        if d_max >z > d_mean:
+                                f[i,j,k] = 75
+                        if z == d_mean:
+                                f[i,j,k] = 50
+                        if z == d_min:
+                                f[i,j,k] = 0
+                        if z == d_max:
+                                f[i,j,k] = 100
 
+                                
+print(f'final {f}')
 
 
 
@@ -112,3 +147,23 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+
+print(arr_string) 
+for i,x in enumerate(d):
+        for j,y in enumerate(x):
+                for k,z in enumerate(y):
+                        
+                        if d_mean >z >d_min:
+                                f[i,j,k] = 'A'
+                        if d_max >z > d_mean:
+                                f[i,j,k] = 'B'
+                        if z == d_mean:
+                                f[i,j,k] = 'C'
+                        if z == d_min:
+                                f[i,j,k] = 'D'
+                        if z == d_max:
+                                f[i,j,k] = 'E'
+
+                                
+print(f'final {f}')
