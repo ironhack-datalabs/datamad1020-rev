@@ -164,7 +164,6 @@ Modify the `Viking` constructor function, have it inherit from `Soldier`, reimpl
 #### constructor function
 
 - should receive **3 arguments** (name, health & strength)
-- should receive the **`name` property** as its **1st argument**
 - should receive the **`health` property** as its **2nd argument**
 - should receive the **`strength` property** as its **3rd argument**
 
