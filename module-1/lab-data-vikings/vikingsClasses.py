@@ -60,7 +60,7 @@ class Saxon (Soldier):
     def receiveDamage(self, the_demage):
         self.health -= the_demage
 
-        if self.health >= the_demage:
+        if self.health > the_demage:
             return (f'A Saxon has received {the_demage} points of damage')
         elif self.health < the_demage:
             return (f'A Saxon has died in combat')
