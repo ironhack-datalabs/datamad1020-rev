@@ -101,9 +101,6 @@ for i in range (2):
                         if d[i,y,g]>d_min and d[i,y,g]<d_mean:
                                 
                                 f[i,y,g]=25
-                                x=str(int(f[i,y,g]))
-                                print(type(x))
-                                print(x)
                         
                         elif d[i,y,g]>d_mean and d[i,y,g]<d_max:
                                  f[i,y,g]=75
@@ -165,31 +162,32 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
-h=np.empty((2,3,5))
+h=np.empty((2,3,5), dtype=str)
 
 for i in range (2):
         for y in range (3):
                 for g in range (5):
                         if d[i,y,g]>d_min and d[i,y,g]<d_mean:
-                                h[i,y,g]=h[i,y,g].astype(str)
-                                print(type(h[i,y,g]))
-                                ''''
+                
+                                h[i,y,g]="A"
+                        
                         elif d[i,y,g]>d_mean and d[i,y,g]<d_max:
-                                h[i,y,g]=h[i,y,g].astype(str)
+                                
                                 h[i,y,g]="B"
 
                         elif d[i,y,g]==d_mean:
-                                h[i,y,g]=h[i,y,g].astype(str)
+                                
                                 h[i,y,g]="C"
                         
                         elif d[i,y,g]<d_min:
-                                h[i,y,g]=h[i,y,g].astype(str)
+                                
                                 h[i,y,g]="D"
 
                         else: 
-                                h[i,y,g]=h[i,y,g].astype(str)
+                                
                                 h[i,y,g]="E"
-                                ''''
+print(h)
+                        
 #no supe como cambiar el type de variable de la matriz
 
 
