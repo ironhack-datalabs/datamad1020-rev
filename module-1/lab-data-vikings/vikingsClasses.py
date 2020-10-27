@@ -112,7 +112,7 @@ class War:
         
         viking = random.choice(self.vikingArmy)
         
-        result = saxon.receiveDamage(viking.attack())
+        result = viking.receiveDamage(saxon.attack())
         
         if result == f"{self.name} has died in act of combat":
             
