@@ -114,16 +114,16 @@ for i in range (2):
                         else: 
                                 f[i,y,g]=100
 
-
 '''
+otra forma mucho mas sencillo
+
 f[d==d_mean]=50
 f[d<d_min]=0
-f[d>d_max]=0
-f[(d>d_mean and d<d_max)]=0
-f[(d<d_mean and d>d_min)]=0
-esto esra otra manera pero las dos ultimas dan error, me indica que uso el comando .all() pero no logre encontrar como usarlo :(
-        '''
-                                
+f[d>d_max]=100
+f[(d>d_mean) & (d<d_max)]=75
+f[(d<d_mean) & (d>d_min)]=25
+
+ '''                               
 
 
 """
