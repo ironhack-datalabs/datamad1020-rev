@@ -1,4 +1,3 @@
-
 # Soldier
 
 class Soldier:
