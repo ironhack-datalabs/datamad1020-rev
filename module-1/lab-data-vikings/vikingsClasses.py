@@ -50,10 +50,6 @@ class Saxon(Soldier):
 
 class War:
 
-    #viking_names = iter(map(lambda x: 'Viking_' + str(x), list(range(0, 500))))
-    #saxon_names = iter(map(lambda x: 'Saxon_' + str(x), list(range(0, 500))))
-
-
 
     def __init__(self):
 
@@ -63,15 +59,13 @@ class War:
 
 
     def addViking(self, new_viking):
-        #new_name = next(self.viking_names)
-        #new_viking = Viking(new_name, random.randint(50,100), random.randint(10,30))
+
         self.vikingArmy.append(new_viking)
 
 
 
     def addSaxon(self, new_saxon):
-        #name = next(self.saxon_names)
-        #new_saxon = Saxon(random.randint(50,100), random.randint(10,30))
+
         self.saxonArmy.append(new_saxon)
 
     def vikingAttack(self):
