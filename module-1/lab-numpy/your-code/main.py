@@ -5,8 +5,8 @@ import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-#print(np.__version__)
-#print(np.show_config())
+print(np.__version__)
+print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
@@ -54,8 +54,8 @@ d = a+c
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-#print(a)
-#print(d)
+print(a)
+print(d)
 #la matriz d es el resutado de la operacion matematica, es decir lo 
 #que ocurrio es que se realizo la suma entre los valores de cada matriz (a y c) correspondiente a la misma posicion
 # y eso genero la nueva matriz "d"
@@ -184,11 +184,9 @@ for i in range (2):
                                 h[i,y,g]="D"
 
                         else: 
-                                
                                 h[i,y,g]="E"
 print(h)
-                        
-#no supe como cambiar el type de variable de la matriz
+                
 
 
 
