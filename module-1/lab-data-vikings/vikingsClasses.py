@@ -30,7 +30,7 @@ class Viking(Soldier):
          
     def receiveDamage(self, damage):
         super().receiveDamage(damage)
-        self.health = self.health - damage
+        self.health -= damage
         if self.health <= 0:
         
             return(f'{self.name} has died in act of combat')
@@ -40,7 +40,7 @@ class Viking(Soldier):
 
     def battleCry(self):
         return 'Odin Owns You All!'
-    
+    pass
 
 # Saxon
 
