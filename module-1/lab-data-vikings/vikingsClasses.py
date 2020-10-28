@@ -1,4 +1,6 @@
-impport random
+from vikingsClases.py import *
+import random
+
 
 # Soldier
 class Soldier:
