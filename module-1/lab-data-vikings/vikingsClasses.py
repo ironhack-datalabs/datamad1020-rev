@@ -92,3 +92,5 @@ class War:
         
         elif len(self.vikingArmy) >= 1 and len(self.saxonArmy) >= 1:
             return "Vikings and Saxons are still in the thick of battle."
+
+
