@@ -78,7 +78,6 @@ class War:
     
     def __init__ (self): #IMOORTANTE que aunque no haya atributos metamos self en (), porque si no no va a funcionar nada !!!
                          #El self lo vamos a tener que utilizar siempre para identificar las instancias 
-    
         self.vikingArmy = [] #aquí, para crear una lista vacía no bastaría con hacer vikingArmy = [], tenemos que identificarlo con selvikingArmy = []
         self.saxonArmy = []
     
@@ -89,6 +88,8 @@ class War:
     def addSaxon(self,Saxon):
         
         self.saxonArmy.append(Saxon)
+
+        
         
     def vikingAttack(self): #En estas líneas creamos el ataque de los vikingos. El ataque se hace de manera aleatoria, y como podemos ver, utilizamos el random
                             #choice en SELF.SAXONARMY. Importante el Self en todas partes que necesitamos nombrar
@@ -99,12 +100,13 @@ class War:
         
         result = saxon.receiveDamage(viking.attack())
         
-        if result == "A Saxon has died in combat":
-            
+        if result == "A saxon has died in combat"
+
             self.saxonArmy.remove(saxon)
-            
+
         return result
-    
+            
+            
         
     def saxonAttack(self):
         
@@ -114,12 +116,15 @@ class War:
         
         result = viking.receiveDamage(saxon.attack())
         
-        if result == f"{self.name} has died in act of combat":
+        if result = f"{viking.name} has dies in act of combat"
             
             self.vikingArmy.remove(viking)
-            
+
         return result
+            
         
+
+
     def showStatus(self):
         
         if not self.saxonArmy: #para ver si una lista está vacía (todos los soldados muertos), hay varias formas, pero esta me ha parecido muy limpia y sencilla
