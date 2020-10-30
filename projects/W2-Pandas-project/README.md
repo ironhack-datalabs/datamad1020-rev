@@ -1,4 +1,4 @@
-![portada]()
+![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W2-Pandas-project/portada.jpg)
 
 # W2 Project - Data cleaning & wrangling
 
