@@ -1,0 +1,5 @@
+USE car_dealership;
+SELECT * FROM cars;
+
+DELETE FROM cars 
+WHERE VIN = 'DAM41UDN3CHU2WVF7';
