@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>colorIndex</key>
+			<integer>0</integer>
+			<key>database</key>
+			<string>LAB_MYSQL</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-2439859830868143495</string>
+			<key>name</key>
+			<string>localhost</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8mb4</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClhTdGFmZl9JRNIeHy0u
+			XxAPTlNNdXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5T
+			TXV0YWJsZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tl
+			eWVkQXJjaGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBL
+			AFIAWgBlAGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIA
+			wwDFAMoA1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEzATgBSgFO
+			AVcBXAFrAW8BdwF8AX8BkQGUAZkAAAAAAAACAQAAAAAAAAA6AAAA
+			AAAAAAAAAAAAAAABmw==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {695, 481}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string> CREATE DATABASE LAB_MYSQL; 
+ 
+ CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL, 
+	Model VARCHAR (30) NOT NULL, 
+	Year INT,
+	Color VARCHAR (20) NOT NULL
+	); 
+
+CREATE TABLE Customer (
+	Customer_ID INT PRIMARY KEY, 
+	First_Name VARCHAR (40) NOT NULL, 
+	Phone_no VARCHAR (20) NOT NULL, 
+	Email VARCHAR (30) NOT NULL, 
+	City VARCHAR (30), 
+	State VARCHAR (30) NOT NULL, 
+	Country VARCHAR (40) NOT NULL, 
+	Postal VARCHAR (40)
+	);
+
+CREATE TABLE Salespersons (
+	Staff_ID INT PRIMARY KEY, 
+	First_name VARCHAR (40) NOT NULL, 
+	Store VARCHAR (30) NOT NULL 
+	); 
+	
+CREATE TABLE Invoices ( 
+	Invoice_number INT PRIMARY KEY, 
+	Date DATE, 
+	Car VARCHAR (30) NOT NULL,
+	Customer VARCHAR (30) NOT NULL, 
+	Salesperson VARCHAR (30) NOT NULL 
+	);
+
+
+ALTER TABLE Salespersons
+ADD FOREIGN KEY Cars
+REFERENCES Cars(VIN)
+ON DELETE SET NULL;
+
+ALTER TABLE Salespersons
+ADD FOREIGN KEY Customers 
+REFERENCES Customers (Customer_ID)
+ON DELETE SET NULL; 
+
+AFTER TABLE Customer
+ADD FOREIGN KEY Cars
+REFERENCES Cars(VIN)
+ON DELETE SET NULL;
+
+ALTER TABLE Cars
+ADD FOREIGN KEY Invoice 
+REFERENCES Invoice(Invoice_number)
+
+
+INSERT INTO Car 
+('3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', '2019', 'Blue')
+('ZM8G7BEUQZ97IH46V', 'Peugeot', 'Rifter', '2019', 'Red')
+('RKXVNNIHLVVZOUB4M', 'Ford', 'Fusion', '2018', 'White')
+('HKNDGS7CU31E9Z7JW', 'Toyota',	'RAV4',	'2018',	'Silver')
+('DAM41UDN3CHU2WVF6', 'Volvo', 'V60', '2019', 'Gray')
+('DAM41UDN3CHU2WVF6', 'Volvo', 'V60', 'Cross Country' '2019' 'Gray')
+
+
+INSERT INTO Customer 
+('10001', 'Pablo Picasso', '+34 636 17 63 82', 'Paseo de la Chopera', '14',	'Madrid	Madrid	Spain	28045)
+('20001', 'Abraham Lincoln', '+1 305 907 7086',	'120 SW 8th St', 'Miami', 'Florida', ' United States', '33130')
+('30001	Napoléon Bonaparte	+33 1 79 75 40 00	-	40 Rue du Colisée	Paris	Île-de-France	France	75008
+</string>
+			<key>table</key>
+			<string>Salespersons</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>214</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>CREATE TABLE Invoices ( 
+	Invoice_number INT PRIMARY KEY, 
+	Date DATE, 
+	Car VARCHAR (30) NOT NULL,
+	Customer VARCHAR (30) NOT NULL, 
+	Salesperson VARCHAR (30) NOT NULL 
+	)</string>
+		<string>CREATE TABLE Salespersons (
+	Staff_ID INT PRIMARY KEY, 
+	First_name VARCHAR (40) NOT NULL, 
+	Store VARCHAR (30) NOT NULL 
+	)</string>
+		<string>CREATE TABLE Customer (
+	Customer_ID INT PRIMARY KEY, 
+	First_Name VARCHAR (40) NOT NULL, 
+	Phone_no VARCHAR (20) NOT NULL, 
+	Email VARCHAR (30) NOT NULL, 
+	City VARCHAR (30), 
+	State VARCHAR (30) NOT NULL, 
+	Country VARCHAR (40) NOT NULL, 
+	Postal VARCHAR (40)
+	)</string>
+		<string>CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL, 
+	Model VARCHAR (30) NOT NULL, 
+	Year INT,
+	Color VARCHAR (20) NOT NULL
+	)</string>
+		<string>CREATE DATABASE LAB_MYSQL</string>
+		<string>DROP DATABASE LAB_MYSQL</string>
+		<string>CREATE DATABASE lab_mysql</string>
+		<string>#### CREATE THE DATABASE ####
+
+CREATE DATABASE LAB_MYSQL</string>
+		<string>####  CREATE THE TABLES ####
+CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL, 
+	Model VARCHAR (30) NOT NULL, 
+	Year INT,
+	Color VARCHAR (20) NOT NULL
+	)</string>
+		<string>DROP DATABASE LAB_MYSQL2</string>
+		<string>LAB_MYSQL</string>
+		<string>ALTER TABLE Salespersons
+ADD FOREIGN KEY (Customers) 
+REFERENCES Customers (Customer_ID)
+ON DELETE SET NULL</string>
+		<string>#### CREATE THE RELATIONSHIPS ####
+
+ALTER TABLE Salespersons
+ADD FOREIGN KEY (Cars)
+REFERENCES Cars(VIN)
+ON DELETE SET NULL</string>
+		<string>CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL,</string>
+		<string>#### CREATE THE DATABASE ####
+
+CREATE DATABASE LAB_MYSQL
+
+
+####  CREATE THE TABLES ####
+CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL, 
+	Model VARCHAR (30) NOT NULL, 
+	Year INT,
+	Color VARCHAR (20) NOT NULL
+	)</string>
+		<string>#### CREATE THE RELATIONSHIPS ####
+
+ALTER TABLE Salespersons
+ADD FOREIGN KEY Cars
+REFERENCES Cars(VIN)
+ON DELETE CASCADE</string>
+		<string>#### CREATE THE DATABASE ####
+
+CREATE DATABASE LAB_MYSQL2
+
+
+####  CREATE THE TABLES ####
+CREATE TABLE Cars (
+	VIN INT PRIMARY KEY, 
+	Manufacter VARCHAR (40) NOT NULL, 
+	Model VARCHAR (30) NOT NULL, 
+	Year INT,
+	Color VARCHAR (20) NOT NULL
+	)</string>
+		<string>REFERENCES Invoice(Invoice_number)
+
+DROP DATABASE</string>
+		<string>ALTER TABLE Cars
+ADD FOREIGN KEY Invoice 
+REFERENCES Invoice(Invoice_number)
+
+DROP DATABASE</string>
+		<string>REFERENCES Invoice(Invoice_number)
+
+DROP TABLE</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>8.0.21</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
