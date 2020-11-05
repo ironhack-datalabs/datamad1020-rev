@@ -58,7 +58,7 @@ INSERT INTO salesperson VALUES
 (00002, 'Anna Sthesia', 'Barcelona'),
 (00003, 'Paul Molive', 'Berlin'),
 (00004, 'Gail Forcewind', 'Paris'),
-(00005, 'Paige Turner', 'Miami'),
+(00005, 'Paige Turner', 'Mimia'),
 (00006, 'Bob Frapples', 'Mexico City'),
 (00007, 'Walter Melon', 'Amsterdam'),
 (00008, 'Shonda Leer', 'São Paulo');
@@ -80,7 +80,21 @@ INSERT INTO invoices VALUES
 ('731166526', '2018-12-31', 3, 0, 5),
 ('271135104', '2019-01-22', 2, 2, 7);
 
+UPDATE salesperson
+SET store_location = 'Miami'
+WHERE staff_id = 5;
 
+UPDATE customer
+SET email = 'ppicasso@gmail.com'
+WHERE customer_id = 10001;
+
+UPDATE customer
+SET email = 'lincoln@us.gov'
+WHERE customer_id = 20001;
+
+UPDATE customer
+SET email = 'hello@napoleon.me'
+WHERE customer_id = 30001;
 
 
 
