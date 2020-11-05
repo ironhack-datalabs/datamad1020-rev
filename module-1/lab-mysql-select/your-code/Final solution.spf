@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>colorIndex</key>
+			<integer>0</integer>
+			<key>database</key>
+			<string>Publications</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-2439859830868143495</string>
+			<key>name</key>
+			<string>localhost</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClh0aXRsZV9pZNIeHy0u
+			XxAPTlNNdXRhYmxlU3RyaW5noy0vI1hOU1N0cmluZ9IeHzEyXk5T
+			TXV0YWJsZUFycmF5ozEzI1dOU0FycmF50h4fIjWiIiNfEA9OU0tl
+			eWVkQXJjaGl2ZXLRODlUZGF0YYABAAgAEQAaACMALQAyADcARQBL
+			AFIAWgBlAGwAcAByAHQAdgB6AHwAfgCAAIIAhwCMAJEAugDBAMIA
+			wwDFAMoA1QDeAPQA+AEFAQ4BEwEVARcBGQEeASgBKgEzATgBSgFO
+			AVcBXAFrAW8BdwF8AX8BkQGUAZkAAAAAAAACAQAAAAAAAAA6AAAA
+			AAAAAAAAAAAAAAABmw==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {1238, 784}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>CREATE DATABASE Publications;
+USE Publications;
+
+#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id 
+INNER JOIN authors ON titleauthor.au_id = authors.au_id 
+INNER JOIN publishers ON titles.pub_id = publishers.pub_id;
+
+#### CHALLENGE 2 ####
+
+SElECT authors.au_id, authors.au_lname, authors.au_fname, publishers.pub_name, COUNT(title) AS title_count
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname, publishers.pub_name;
+
+
+#### CHALLENGE 3 ####
+
+SELECT authors.au_id, authors.au_lname, authors.au_fname, SUM(ytd_sales) AS total
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname
+ORDER BY total desc
+LIMIT 3;
+
+
+#### CHALLENGE 4 ####
+
+SELECT authors.au_id, authors.au_lname, authors.au_fname, SUM(ytd_sales) AS total
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname
+ORDER BY total desc;</string>
+			<key>table</key>
+			<string>titles</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>203</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>#### CHALLENGE 4 ####
+
+SELECT authors.au_id, authors.au_lname, authors.au_fname, SUM(ytd_sales) AS total
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname
+ORDER BY total desc</string>
+		<string>#### CHALLENGE 3 ####
+
+SELECT authors.au_id, authors.au_lname, authors.au_fname, SUM(ytd_sales) AS total
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname
+ORDER BY total desc
+LIMIT 3</string>
+		<string>#### CHALLENGE 2 ####
+
+SElECT authors.au_id, authors.au_lname, authors.au_fname, publishers.pub_name, COUNT(title) AS title_count
+FROM titles
+INNER JOIN publishers ON publishers.pub_id = titles.pub_id
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id
+INNER JOIN `authors` ON authors.au_id = titleauthor.au_id
+GROUP BY authors.au_id, authors.au_lname, authors.au_fname, publishers.pub_name</string>
+		<string>#### CHALLENGE 2 ####
+
+SELECT authors.au_id AS 'author ID', au_lname AS 'last name', au_fname AS 'first name' , pub_name AS publisher, COUNT(title) AS 'title count'
+FROM titles 
+JOIN titleauthor
+ON titles.title_id = titleauthor.title_id
+JOIN publishers
+ON titles.pub_id = publishers.pub_id
+JOIN authors
+ON titleauthor.au_id = authors.au_id
+GROUP BY authors.au_id
+ORDER BY 'title count'</string>
+		<string>#### CHALLENGE 2 ####
+
+SELECT authors.au_id AS 'author ID', au_lname AS 'last name', au_fname AS 'first name' , pub_name AS publisher, COUNT(title) AS 'title count'
+FROM titles 
+JOIN titleauthor
+ON titles.title_id = titleauthor.title_id
+JOIN publishers
+ON titles.pub_id = publishers.pub_id
+JOIN authors
+ON titleauthor.au_id = authors.au_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id 
+INNER JOIN authors ON titleauthor.au_id = authors.au_id 
+INNER JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>USE Publications</string>
+		<string>CREATE DATABASE Publications</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON titles.title_id = titleauthor.title_id 
+JOIN authors ON titleauthor.au_id = authors.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON titles.title_id = titleauthor.title_id 
+JOIN authors ON titleauthor.au_id = authors.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id
+ORDER BY au_lname asc</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON tittles.tittle_id = tittleauthor.tittle_id 
+JOIN authors ON titleauthor.au_id = authors.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id
+ORDER BY au_lname asc</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON tittles.tittle_id = tittleauthor.tittle_id 
+JOIN authors ON titleauthor.au_id = authors.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON tittles.tittle_id = tittleauthor.tittle_id 
+JOIN authors ON titleauthor.au_id = author.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM titles 
+JOIN titleauthor ON tittles.tittle_id = tittleauthor.tittle_id 
+JOIN authors ON titlleauthor.au_id = author.au_id 
+JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM authors JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+			JOIN titles ON author.title_id = titles.title_id 
+			JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM authors JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+			JOIN titles ON author.title_id = titles.title_id 
+			JOIN publishers ON titles.pub_id = publishers.pub_id</string>
+		<string>#### CHALLENGE 1 ####
+
+SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM authors JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+			JOIN titles ON author.title_id = titles.title_id 
+			JOIN publishers ON titles.pub_name = publishers.pub_name</string>
+		<string>SELECT authors.au_id AS "AUTHOR ID", 
+authors.au_lname AS "LAST NAME", 
+authors.au_fname AS "FIRST NAME", 
+titles.title AS "TITLE", 
+publishers.pub_name AS "PUBLISHER"
+FROM authors JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+			JOIN titles ON author.title_id = titles.title_id 
+			JOIN publishers ON titles.pub_name = publishers.pub_name</string>
+		<string>SELECT authors.au_id AS "AUTHOR ID", 
+authors.au_lname AS "LAST NAME", 
+authors.au_fname AS "FIRST NAME", 
+titles.title AS "TITLE", 
+publishers.pub_name AS "PUBLISHER"
+FROM authors JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+	JOIN titles ON author.title_id = titles.title_id 
+	JOIN publishers ON titles.pub_name = publishers.pub_name</string>
+		<string>SELECT authors.au_id AS "AUTHOR ID", authors.au_lname AS "LAST NAME", authors.au_fname AS "FIRST NAME", titles.title AS "TITLE", publishers.pub_name AS "PUBLISHER"
+FROM authors 
+JOIN titleauthor ON authors.au_id = tittleauthor.au_id 
+	JOIN titles ON author.title_id = titles.title_id 
+	JOIN publishers ON titles.pub_name = publishers.pub_name</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>8.0.21</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
