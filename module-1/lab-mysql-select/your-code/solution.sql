@@ -21,7 +21,7 @@ ON titles.pub_id = publishers.pub_id
 JOIN authors
 ON titleauthor.au_id = authors.au_id
 GROUP BY authors.au_id
-ORDER BY 'first name' ASC;
+ORDER BY 'title count'; #no se me orden por title count
 
 #Challenge 3 - Best Selling Authors
 
@@ -37,7 +37,7 @@ LIMIT 3;
 
 #Challenge 4 - Challenge 4 - Best Selling Authors Ranking
 
-SELECT authors.au_id AS 'author ID', au_lname AS 'last name', au_fname AS 'first name', SUM(qty)
+SELECT authors.au_id AS 'author ID', au_lname AS 'last name', au_fname AS 'first name', COALESCE(SUM(qty),0) #con COALESCE podemos cambiar NULL a 0
 FROM sales
 INNER JOIN titleauthor
 ON sales.title_id = titleauthor.title_id
@@ -49,7 +49,7 @@ ORDER BY SUM(qty) DESC;
 
 #Bonus Challenge - Most Profiting Authors
 #Había puesto todo el query pero tenía la parte de los royalties incompleta. Me faltaba (*sales.qty*titles.price) que lo he visto al ver el solutions
- SELECT authors.au_id, au_lname, au_fname,  (titles.advance + (titleauthor.royaltyper/100)*titles.royalty*sales.qty*titles.price) AS profit
+ SELECT authors.au_id, au_lname, au_fname,  COALESCE((titles.advance + (titleauthor.royaltyper/100)*titles.royalty*sales.qty*titles.price),0) AS profit
  FROM sales
  JOIN titles
  ON sales.title_id = titles.title_id
@@ -59,7 +59,6 @@ ORDER BY SUM(qty) DESC;
  ON titleauthor.au_id = authors.au_id
  GROUP BY authors.au_id 
  ORDER BY profit DESC
- LIMIT 3;
 
 
 
