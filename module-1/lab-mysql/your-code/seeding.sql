@@ -38,4 +38,3 @@ values
 (118, '2017-02-03', 'ESP41ETZ3GTM2WVF7', 0035,7);
 
 
-SELECT * FROM invoices
