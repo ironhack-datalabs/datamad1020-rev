@@ -19,37 +19,42 @@ SELECT title_id, au_id, SUM(sales_royalty) as 'sales_royalty'
 FROM temp_table_royal
 GROUP BY au_id, title_id;
 
+
 -- STEP 3 --
-SELECT au_id, SUM(sales_royalty) as 'total_royalties'
+SELECT au_id, SUM(sales_royalty + titles.advance) as 'total_money'
 FROM temp_table_royal2
+INNER JOIN titles
+ON titles.title_id = temp_table_royal2.title_id
 GROUP BY au_id
-ORDER BY SUM(sales_royalty) DESC
+ORDER BY SUM(sales_royalty + titles.advance) DESC
 LIMIT 3;
 
 -- CHALLENGE 2 --
 
-SELECT au_id, SUM(sales_royalty) as 'total_royalties'
+SELECT au_id, SUM(sales_royalty + titles.advance) as 'total_money'
 FROM (SELECT title_id, au_id, SUM(sales_royalty) as 'sales_royalty'
 FROM (SELECT title_id, au_id, SUM(sales_royalty) as 'sales_royalty'
 FROM temp_table_royal
 GROUP BY au_id, title_id) AS temp_table
 GROUP BY au_id, title_id) AS temp_table2
-
+INNER JOIN titles
+ON titles.title_id = temp_table2.title_id
 GROUP BY au_id
-ORDER BY SUM(sales_royalty) DESC
+ORDER BY SUM(sales_royalty + titles.advance) DESC
 LIMIT 3;
 
 -- CHALLENGE 3 --
 CREATE TABLE most_profiting_authors
-SELECT au_id, SUM(sales_royalty) as 'profits'
+SELECT au_id, SUM(sales_royalty + titles.advance) as 'total_money'
 FROM (SELECT title_id, au_id, SUM(sales_royalty) as 'sales_royalty'
 FROM (SELECT title_id, au_id, SUM(sales_royalty) as 'sales_royalty'
 FROM temp_table_royal
 GROUP BY au_id, title_id) AS temp_table
 GROUP BY au_id, title_id) AS temp_table2
-
+INNER JOIN titles
+ON titles.title_id = temp_table2.title_id
 GROUP BY au_id
-ORDER BY SUM(sales_royalty) DESC
+ORDER BY SUM(sales_royalty + titles.advance) DESC
 LIMIT 3;
 
 
