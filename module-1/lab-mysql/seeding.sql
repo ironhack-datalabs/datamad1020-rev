@@ -1,104 +1,94 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Version 5446
-#
-# https://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Host: 127.0.0.1 (MySQL 8.0.21)
-# Database: lab_mysql
-# Generation Time: 2020-11-04 22:19:23 +0000
-# ************************************************************
+CREATE DATABASE lab_mysql;
+
+USE lab_mysql;
+
+CREATE TABLE cars (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	vin VARCHAR(30),
+	manufacturer VARCHAR(20) NOT NULL,
+	model VARCHAR(20) NOT NULL,
+	year INT,
+	color VARCHAR(20) NOT NULL,
+	invoices INT,
+	salesperson INT,
+	customers INT
+);
+
+CREATE TABLE customers (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	customer_id INT,
+	name VARCHAR(40) NOT NULL,
+	phone_number VARCHAR(20) NOT NULL,
+	email VARCHAR(30),
+	address VARCHAR(40) NOT NULL,
+	city VARCHAR(20) NOT NULL,
+	state_province VARCHAR(20) NOT NULL,
+	country VARCHAR(20) NOT NULL,
+	zip_code VARCHAR(20) NOT NULL,
+	salesperson VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE invoices (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	invoice_number INT,
+	date DATE NOT NULL,
+	car VARCHAR(20) NOT NULL,
+	customer VARCHAR(20) NOT NULL,
+	salesperson VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE salesperson (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	staff_id INT,
+	name VARCHAR(20) NOT NULL,
+	store VARCHAR(30) NOT NULL
+);
+
+ALTER TABLE cars
+ADD FOREIGN KEY(invoices)
+REFERENCES invoices(invoice_number)
+ON DELETE SET NULL;
+
+ALTER TABLE cars
+ADD FOREIGN KEY(salesperson)
+REFERENCES salesperson(staff_id)
+ON DELETE SET NULL;
+
+ALTER TABLE cars
+ADD FOREIGN KEY(customers)
+REFERENCES customers(customer_id)
+ON DELETE CASCADE;
+
+ALTER TABLE customers
+ADD FOREIGN KEY(salesperson)
+REFERENCES salesperson(name)
+ON DELETE CASCADE;
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-SET NAMES utf8mb4;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+INSERT INTO cars VALUES
+(0, 3K096I98581DHSNUP, Volkswagen, Tiguan, 2019, Blue),
+(1, ZM8G7BEUQZ97IH46V, Peugeot, Rifter, 2019, Red),
+(2, RKXVNNIHLVVZOUB4M, Ford, Fusion, 2017, White),
+(3, HKNDGS7CU31E9Z7JW, Toyota, RAV4, 2018, White),
+(4, DAM41UDN3CHU2WVF6, Volvo, V60, 2019, Gray),
+(5, DAM41UDN3CHU2WVF6, Volvo, V60_Cross_Country, 2019, Gray);
 
+INSERT INTO customers VALUES
+(0, 10001, Pablo_Picasso, +34636176382, NULL, Paseo_de_la_Chopera_14, Madrid, Madrid, Spain, 28045),
+(1, 20001, Abraham_Lincoln, +13059077086, NULL, 120_SW_8th_St, Miami, Florida, United_States, 33130),
+(2, 30001, Napoleón_Bonaparte, +33179754000, NULL, 40_Rue_du_Colisée, París, Île-de-France, France, 75008);
 
-# Dump of table cars
-# ------------------------------------------------------------
+INSERT INTO salesperson VALUES
+(0, 00001, Petey_Cruiser, Madrid),
+(1, 00002, Anna_Sthesia, Barcelona),
+(2, 00003, Paul_Molive, Berlin),
+(3, 00004, Gail_Forcewind, Paris),
+(4, 00005, Paige_Turner, Mimia),
+(5, 00006, Bob_Frapples, Mexico_City),
+(6, 00007, Walter_Melon, Amsterdam),
+(7, 00008, Shonda_Leer, São_Paulo);
 
-DROP TABLE IF EXISTS `cars`;
-
-CREATE TABLE `cars` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `vin` varchar(30) DEFAULT NULL,
-  `manufacturer` varchar(20) NOT NULL,
-  `model` varchar(20) NOT NULL,
-  `year` int DEFAULT NULL,
-  `color` varchar(20) NOT NULL,
-  `invoices` int DEFAULT NULL,
-  `salesperson` int DEFAULT NULL,
-  `customers` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-# Dump of table customers
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `customers`;
-
-CREATE TABLE `customers` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `customer_id` int DEFAULT NULL,
-  `name` varchar(40) NOT NULL,
-  `phone_number` varchar(20) NOT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `address` varchar(40) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `state_province` varchar(20) NOT NULL,
-  `country` varchar(20) NOT NULL,
-  `zip_code` varchar(20) NOT NULL,
-  `salesperson` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-# Dump of table invoices
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `invoices`;
-
-CREATE TABLE `invoices` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `invoice_number` int DEFAULT NULL,
-  `date` date NOT NULL,
-  `car` varchar(20) NOT NULL,
-  `customer` varchar(20) NOT NULL,
-  `salesperson` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-# Dump of table salesperson
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `salesperson`;
-
-CREATE TABLE `salesperson` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `staff_id` int DEFAULT NULL,
-  `name` varchar(20) NOT NULL,
-  `store` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO invoices VALUES
+(0, 852399038, 2018-08-22, 0, 1, 3),
+(1, 731166526, 2018-12-31, 3, 0, 5),
+(2, 271135104, 2019-01-22, 2, 2, 7);
