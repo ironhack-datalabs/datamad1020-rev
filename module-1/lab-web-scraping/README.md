@@ -1,7 +1,7 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
 # Lab | Web Scraping
-
+ 
 ## Introduction
 
 As you have learned in the lesson, Web "scraping" (also called "web harvesting", "web data extraction" or even "web data mining"), can be defined as "the construction of an agent to download, parse, and organize data from the web in an automated manner". Or, in other words: instead of a human end-user clicking away in their web browser and copy-pasting interesting parts into, say, a spreadsheet, web scraping offloads this task to a computer program which can execute it much faster, and more correctly, than a human can. 
