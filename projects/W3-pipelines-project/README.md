@@ -1,4 +1,4 @@
-![IronHack Logo](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_d5c5793015fec3be28a63c4fa3dd4d55.png)
+![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W3-pipelines-project/portadaw3.jpg)
 
 # Project: Data Pipeline
 
