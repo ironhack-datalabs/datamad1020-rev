@@ -82,4 +82,4 @@ LEFT JOIN titles
 ON titleauthor.title_id = titles.title_id
 GROUP BY authors.au_id
 ORDER BY PROFIT DESC
-LIMIT 3
+LIMIT 3;
