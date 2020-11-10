@@ -2,7 +2,7 @@
 
 # Lab | Data Visualization with Tableau
 
-## Introduction
+## Introduction 
 
 In this lab, we will practice creating visualizations using the many types of charts and graphs that come with Tableau.
 
