@@ -1,6 +1,6 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Data Visualization with Tableau
+# Lab |  Data Visualization with Tableau
 
 ## Introduction
 
