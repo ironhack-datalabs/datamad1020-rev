@@ -1,0 +1,19 @@
+Bar Chart: https://public.tableau.com/profile/ana2072#!/vizhome/BARCHART_16003542777510/Barchart?publish=yes
+
+Pie Chart: https://public.tableau.com/profile/ana2072#!/vizhome/piechart_16003540234080/piechart?publish=yes
+
+Accumulated Chart: https://public.tableau.com/profile/ana2072#!/vizhome/Accumulatedchart/accumulatedchart?publish=yes
+
+Scatter Plot:https://public.tableau.com/profile/ana2072#!/vizhome/ScatterPlot_16050273863280/scatterplot?publish=yes
+
+Tabular visualization: https://public.tableau.com/profile/ana2072#!/vizhome/Tabularvisualization/tabla?publish=yes
+
+Tree: https://public.tableau.com/profile/ana2072#!/vizhome/Tree_16050274365970/tree?publish=yes
+
+Horizontal Bar Chart: https://public.tableau.com/profile/ana2072#!/vizhome/horizontalbarchart_16003577693950/horizontalbarchart?publish=yes
+
+Whiskers: https://public.tableau.com/profile/ana2072#!/vizhome/Whiskers_16050274850970/whiskers?publish=yes
+
+Dashboard: https://public.tableau.com/profile/ana2072#!/vizhome/Dashboradlab-tableau-data-visualization/Dashboard1?publish=yes
+
+BONUS: https://public.tableau.com/profile/ana2072#!/vizhome/BONUS_16003596547700/Dashboard2?publish=yes
