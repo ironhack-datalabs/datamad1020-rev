@@ -2,7 +2,7 @@
 
 # MongoDB | Compass CRUD
 
-## Introduction
+## Introduction 
 
 We are back with our queries! :wink:
 
