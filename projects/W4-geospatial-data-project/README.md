@@ -1,6 +1,6 @@
-![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W4-geospatial-data-project/portada.png)
+![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W4-geospatial-data-project/portada.jpg)
 
-# GeoSpartial Data Project
+# GeoSpatial Data Project
 
 ## TODO's
 
