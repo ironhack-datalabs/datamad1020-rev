@@ -1,3 +1,5 @@
+![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W4-geospatial-data-project/portada.png)
+
 # GeoSpartial Data Project
 
 ## TODO's
@@ -14,17 +16,17 @@ You recently created a new company in the `GAMING industry`. The company will ha
 - 10 Executives
 - 1 CEO/President
 
-As a data engineer you have asked all the employees to show their preferences on where to place the new office. Your goal is to place the **new company offices** in the best place for the company to grow. You have to found a place that more or less covers all the following requirements. Note that **it's impossible to cover all requirements**, so you have to prioritize at your glance.
+As a data engineer you have asked all the employees to show their preferences on where to place the new office. Your goal is to place the **new company offices** in the best place for the company to grow. You have to find a place that more or less covers all the following requirements (note that **it's impossible to cover all requirements**, so you have to prioritize at your glance):
 
 - Designers like to go to design talks and share knowledge. There must be some nearby companies that also do design.
-- 30% of the company have at least 1 child.
+- 30% of the company staff have at least 1 child.
 - Developers like to be near successful tech startups that have raised at least 1 Million dollars.
-- Executives like Starbucks A LOT. Ensure there's a starbucks not to far.
-- Account managers need to travel a lot
-- All people in the company have between 25 and 40 years, give them some place to go to party.
-- The CEO is Vegan
+- Executives like Starbucks A LOT. Ensure there's a starbucks not too far.
+- Account managers need to travel a lot.
+- Everyone in the company is between 25 and 40, give them some place to go party.
+- The CEO is vegan.
 - If you want to make the maintenance guy happy, a basketball stadium must be around 10 Km.
-- The office dog "Pepe" needs a hairdresser every month. Ensure there's one not too far away.
+- The office dog—"Pepe" needs a hairdresser every month. Ensure there's one not too far away.
 
 ## Help
 
@@ -35,7 +37,7 @@ As a data engineer you have asked all the employees to show their preferences on
 ## How to deliver the project
 
 - Create a new repo in your github account.
-- Do a PR with the link of your repo copy pasted inside `m2/geospartial-data-project/REAMDE.md` on our labs repo.
+- Do a PR with the link of your repo copy pasted inside `my-project.md` (within the parentheses) on this repo.
 - You must justify your decision with a map, use visualization tools like (tableau, folium, cartoframes, etc.)
 - Provide `lat` and `long` for the new office proposals.
 
