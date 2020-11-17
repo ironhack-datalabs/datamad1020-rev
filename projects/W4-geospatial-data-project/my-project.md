@@ -1,1 +1,1 @@
-The link to my **awesome** repo is: [here](https://github.com/rafadedubra/geospatial-data-project) ⬅️ 🔥
+The link to my **awesome** repo is: [https://github.com/rafadedubra/geospatial-data-project]( ⬅️ 🔥
