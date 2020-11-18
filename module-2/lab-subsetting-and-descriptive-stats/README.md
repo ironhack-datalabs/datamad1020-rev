@@ -1,7 +1,7 @@
 
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Subsetting and descriptive stats
+# Lab | Subsetting and descriptive stats:)
 
 
 ## Introduction
