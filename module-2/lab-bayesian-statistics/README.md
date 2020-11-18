@@ -2,7 +2,7 @@
 
 # Lab | Intro to Bayesian Statistics
 
-## Introduction
+## Introduction 
 
 In the Intro to Bayesian Statistics lesson, we covered Bayes' Theorem and Bayesian Data Analysis using a method known as Approximate Bayesian Computation. In this lab, you will practice estimating probabilities and answering probabilistic questions using the fundamentals of Bayesian statistics you learned. You will often be applying the same methods to a different problem, so how you frame the problem is especially important in these exercises.
 
