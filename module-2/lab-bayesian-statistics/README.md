@@ -1,6 +1,6 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Intro to Bayesian Statistics
+# Lab | Intro to Bayesian Statistics:)
 
 ## Introduction
 
