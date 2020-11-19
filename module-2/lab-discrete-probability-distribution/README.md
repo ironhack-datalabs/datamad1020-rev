@@ -1,7 +1,7 @@
 
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Discrete Probability Distributions
+# Lab | Discrete Probability Distributions:)
 
 
 ## Introduction
