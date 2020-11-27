@@ -1,9 +1,9 @@
-
+![portada](https://github.com/ironhack-datalabs/datamad1020-rev/blob/master/projects/W6-api-sentiment-project/portada.jpg)
 **Description:** You've been web-scrapping and querying databases for data. Now **you** will be the data provider 🎉.
 
 For that, you will create your own API. This API will be able to receive information, store it, or serve it when needed.
 
-In this project, you will practise:
+In this project, you will practice:
 
 - Flask (API creation)
 - MongoDB 
