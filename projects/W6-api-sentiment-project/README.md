@@ -9,8 +9,7 @@ In this project, you will practice:
 - MongoDB 
 - NLTK (sentiment analysis)
 
-## Project Goals
-
+## Project Goals 
 **Main goal**: Create an API that:
  1. Serves information to clients (in response to their GET requests).
  2. Receives data from your clients (via their POST requests) and saves it to your own database.
