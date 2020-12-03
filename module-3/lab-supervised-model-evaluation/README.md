@@ -1,6 +1,6 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Supervised Learning Model Evaluation
+# Lab | Supervised Learning Model Evaluation 
 
 ## Introduction
 
