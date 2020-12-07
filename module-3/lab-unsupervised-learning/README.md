@@ -3,7 +3,7 @@
 # Lab | Unsupervised Learning
 
 
-## Introduction
+## Introduction 
 
 Some people think unsupervised learning is boring because there isn't any specific output to predict or evaluate. Other people, especially the machine learning experts, consider unsupervised learning the future of data science because it resembles how human beings learn. Think how a kid learns what a dog is. Dad and mom don't show 100K animals and tell her which ones are dogs. Rather, the kid will keep encountering dogs in her daily experience and after a number of encounterings she will extract the common features of dogs and recognize new ones.
 
